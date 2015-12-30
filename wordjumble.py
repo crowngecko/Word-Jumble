@@ -82,19 +82,18 @@ class Engine(object):
 				scramble = self.words.scramble(answer)
 				print "\nThe scrambled word is: %s" % scramble
 				chances = 3
-				continue
-	
-			if input == 'pass':
+			elif input == 'pass':
 				if passes != 0:
-					print "You've chosen to pass on this word."
+					passes -= 1
+					print "You've chosen to pass on this word.\n"
 					answer = self.words.get()
 					scramble = self.words.scramble(answer)
+					chances = 3
 					print "The new scrambled word is: %s" % scramble
 				else:
 					print "You have no passes left!"
-				continue
-				
-			chances -= 1
+			else:	
+				chances -= 1
 					
 		return score
 		
